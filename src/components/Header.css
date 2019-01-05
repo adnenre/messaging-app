@@ -1,0 +1,25 @@
+.Header {
+  padding: 1rem 2rem;
+  display:flex;
+  margin-left: -1px;
+    z-index: 1;
+  border-bottom: 1px solid rgba(189, 189, 192, 0.2);
+  background:linear-gradient(to Right,#025d54,#058478)
+}
+.Header__img{
+  padding-right:1rem;
+}
+.Header__name {
+  color: #fff;
+  font-size:1rem;
+  margin:10px 0 0 0;
+}
+.Header__status{
+  margin:0px;
+}
+
+@media (max-width: 576px) {
+  .Header__status {
+    display:none;
+  }
+}
