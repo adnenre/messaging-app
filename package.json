@@ -27,6 +27,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@faker-js/faker": "^6.0.0"
+    "@faker-js/faker": "^6.0.0",
+    "gh-pages": "^3.2.3"
   }
 }
