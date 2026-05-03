@@ -1,6 +1,13 @@
 # Messaging App Prototype - Whatsup-like-messaging
 
-A front-end demo exploring a modern instant messaging interface built with React and Redux. This application uses mock data to simulate a complete chat experience, including user contacts, message threads, and real-time typing indicators. It's a practical showcase of state management and the classic messaging UI, built with a modern toolchain and deployed on GitHub Pages.
+A front-end demo exploring a modern instant messaging interface built with React and Redux. This application uses mock data to simulate a complete chat experience, including user contacts, message threads, and real-time typing indicators. It's a practical showcase of state management and the classic messaging UI, built with a modern toolchain and deployed on GitHub Pages.\*
+
+# screen shot
+
+![login login ](login.png)
+![register register](register.png)
+![contact contact](whatsup-contact-view.png)
+![message message](whatsup-message-view.png)
 
 ## ✨ Key Features
 
