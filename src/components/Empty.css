@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  background:#025d54;
+  background: #075e54;
 }
 .Empty__name {
   color: #fff;
@@ -22,8 +22,8 @@
   margin: 2rem 0;
   border: solid 4px white;
   box-shadow: 0 0 12px 8px #ffffff7d;
-  width:200px;
-  height:200px;
+  width: 200px;
+  height: 200px;
 }
 .Empty__btn {
   padding: 1rem;

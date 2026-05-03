@@ -6,28 +6,32 @@ export default function messages(state = getMessages(10), action) {
   switch (action.type) {
     case SEND_MESSAGE:
       const { message, userId, chatId } = action.payload;
-      const allUserMsgs = state[userId];
-      const number = chatId || +_.keys(allUserMsgs).pop() + 1;
+      const allUserMsgs = state[userId] || {};
+      // Find the highest existing message number (assuming keys are numeric)
+      const existingNumbers = Object.keys(allUserMsgs)
+        .map(Number)
+        .filter((n) => !isNaN(n));
+      const nextNumber = existingNumbers.length > 0 ? Math.max(...existingNumbers) + 1 : 0;
 
       return {
         ...state,
         [userId]: {
           ...allUserMsgs,
-          [number]: {
-            number,
-            text: chatId ? message.concat(" (edited)") : message,
-            is_user_msg: true
-          }
-        }
+          [nextNumber]: {
+            number: nextNumber,
+            text: message,
+            is_user_msg: true,
+            timestamp: Date.now(), // IMPORTANT: add timestamp for new messages
+          },
+        },
       };
 
     case DELETE_CHAT:
       const messageId = action.payload.number;
       const activeUserId = action.payload.activeUserId;
-
       return {
         ...state,
-        [activeUserId]: _.omit(state[activeUserId], messageId)
+        [activeUserId]: _.omit(state[activeUserId], messageId),
       };
 
     default:

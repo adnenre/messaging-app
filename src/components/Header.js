@@ -1,21 +1,22 @@
 import React from "react";
 import "./Header.css";
 
-function Header({ user }) {
+const Header = ({ user }) => {
+  if (!user) return <div className="header__placeholder">Select a chat</div>;
+
   const { name, profile_pic, status } = user;
 
   return (
-    <header className="Header">
-    <div className="User__pic-container Header__img">
-      <img src={profile_pic} alt={name} className="User__pic" />
-      <div className="User__status"></div>
+    <div className="header">
+      <div className="header__avatar">
+        <img src={profile_pic} alt={name} className="header__avatar-img" />
       </div>
-        <div className="user__detail">
-        <h1 className="Header__name">{name}</h1>
-        <p className="Header__status">{status}</p>
+      <div className="header__info">
+        <div className="header__name">{name}</div>
+        <div className="header__status">{status || "online"}</div>
       </div>
-    </header>
+    </div>
   );
-}
+};
 
 export default Header;

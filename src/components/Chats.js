@@ -3,32 +3,49 @@ import { deleteChat, editChat } from "../actions";
 import store from "../store";
 import "./Chats.css";
 
-const handleDeleteChat = number => {
-  const activeUserId = store.getState().activeUserId;
-  store.dispatch(deleteChat(number, activeUserId));
+const formatTime = (timestamp) => {
+  return new Date(timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 };
-const handleEditChat = (number, text, e) => {
-  const activeUserId = store.getState().activeUserId;
-  store.dispatch(editChat(number, activeUserId, text));
+
+const formatDateSeparator = (timestamp) => {
+  const date = new Date(timestamp);
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+
+  if (date.toDateString() === today.toDateString()) return "TODAY";
+  if (date.toDateString() === yesterday.toDateString()) return "YESTERDAY";
+  return date.toLocaleDateString();
 };
-//at this point, Chat could be moved to its own file.
-const Chat = ({ message }) => {
-  const { number, text, is_user_msg } = message;
-  return is_user_msg ? (
-    <div
-      className="Chat is-user-msg"
-      onDoubleClick={handleEditChat.bind(null, number, text)}
-    >
-      <span
-        className="Chat__close"
-        onClick={handleDeleteChat.bind(null, number)}
-      >
-        X
-      </span>
-      {text}
+
+const Chat = ({ message, activeUserId }) => {
+  const { number, text, is_user_msg, timestamp } = message;
+  const timeStr = timestamp ? formatTime(timestamp) : "";
+
+  const handleDelete = () => {
+    store.dispatch(deleteChat(number, activeUserId));
+  };
+
+  const handleEdit = () => {
+    store.dispatch(editChat(number, activeUserId, text));
+  };
+
+  if (is_user_msg) {
+    return (
+      <div className="chats__chat chats__chat--user" onDoubleClick={handleEdit}>
+        <span className="chats__close" onClick={handleDelete}>
+          ✕
+        </span>
+        <div className="chats__text">{text}</div>
+        <div className="chats__timestamp">{timeStr}</div>
+      </div>
+    );
+  }
+  return (
+    <div className="chats__chat chats__chat--other">
+      <div className="chats__text">{text}</div>
+      <div className="chats__timestamp">{timeStr}</div>
     </div>
-  ) : (
-    <span className="Chat">{text}</span>
   );
 };
 
@@ -44,15 +61,37 @@ class Chats extends Component {
     this.scrollToBottom();
   }
   scrollToBottom = () => {
-    this.chatsRef.current.scrollTop = this.chatsRef.current.scrollHeight;
+    if (this.chatsRef.current) {
+      this.chatsRef.current.scrollTop = this.chatsRef.current.scrollHeight;
+    }
   };
-
   render() {
+    const { messages, activeUserId } = this.props;
+    if (!messages || messages.length === 0) return null;
+
+    const groupedMessages = {};
+    messages.forEach((msg) => {
+      const dateKey = new Date(msg.timestamp).toDateString();
+      if (!groupedMessages[dateKey]) groupedMessages[dateKey] = [];
+      groupedMessages[dateKey].push(msg);
+    });
+
+    const messageElements = [];
+    Object.keys(groupedMessages).forEach((dateKey, idx) => {
+      const separator = formatDateSeparator(groupedMessages[dateKey][0].timestamp);
+      messageElements.push(
+        <div key={`sep-${idx}`} className="chats__date-separator">
+          {separator}
+        </div>,
+      );
+      groupedMessages[dateKey].forEach((msg) => {
+        messageElements.push(<Chat message={msg} key={msg.number} activeUserId={activeUserId} />);
+      });
+    });
+
     return (
-      <div className="Chats" ref={this.chatsRef}>
-        {this.props.messages.map(message => (
-          <Chat message={message} key={message.number} />
-        ))}
+      <div className="chats" ref={this.chatsRef}>
+        {messageElements}
       </div>
     );
   }

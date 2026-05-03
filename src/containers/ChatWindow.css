@@ -1,5 +1,37 @@
-.ChatWindow {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #efeae2;
+  background-image: url("/bg.png");
+  background-repeat: repeat;
+}
+
+.chat-window__header {
+  display: flex;
+  align-items: center;
+  background-color: #f0f2f5;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.chat-window__back-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #54656f;
+}
+
+.chat-window__back-btn:hover {
+  color: #075e54;
+}
+
+.chat-window__placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 18px;
+  color: #667781;
 }

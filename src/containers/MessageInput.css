@@ -1,16 +1,45 @@
-.Message {
-  width: 90%;
-  margin: 1rem auto;
+.message-input {
+  display: flex;
+  align-items: center;
+  background-color: #f0f2f5;
+  padding: 8px 16px;
+  border-top: 1px solid #e0e0e0;
+  gap: 10px;
 }
-.Message__input {
-  width: 100%;
-  padding: 1rem;
-  
-  color: #222;
-  border: 0;
-  border-radius: 10px;
-  font-size: 1rem;
-  outline: 0;
-  background: #eee;
-  border: solid 1px #ddd;
+.message-input__field {
+  flex: 1;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  font-size: 15px;
+  outline: none;
+}
+.message-input__send {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: #075e54;
+  border: none;
+  border-radius: 50%;
+  font-size: 8px;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.2s;
+}
+.message-input__send:hover {
+  color: #075e54;
+  background: #fff;
+}
+
+.message-input__send-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: relative;
+  transform: rotateZ(45deg);
+  top: 12%;
+  right: 10%;
 }

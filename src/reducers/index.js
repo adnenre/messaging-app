@@ -1,16 +1,18 @@
 import { combineReducers } from "redux";
-import user from "./user";
+import activeChatId from "./activeChatId";
+import activeUserId from "./activeUserId";
+import contacts from "./contacts";
 import messages from "./messages";
 import typing from "./typing";
-import contacts from "./contacts";
-import activeUserId from "./activeUserId";
-import activeChatId from "./activeChatId";
+import user from "./user";
+import auth from "./auth";
 
 export default combineReducers({
-  user,
+  activeChatId,
+  activeUserId,
+  contacts,
   messages,
   typing,
-  contacts,
-  activeUserId,
-  activeChatId
+  user,
+  auth,
 });
