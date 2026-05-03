@@ -11,8 +11,8 @@ A front-end demo exploring a modern instant messaging interface built with React
 
 ## ✨ Key Features
 
-- **💬 Contact List & Chat Simulation** – Select a contact to view your message history. All conversations are pre-loaded for instant access.
-- **⌨️ Typing Indicator** – A realistic simulation of the "other user is typing" message for an authentic chat feel.
+- **💬 Contact List with search** – Search or Select a contact to view your message history. All conversations are pre-loaded for instant access.
+- **⌨️ Chat Simulation** – A realistic simulation of the sending/deleting messages
 - **👤 Randomized Mock Data** – A contact list of 35 users is dynamically generated, each with a name, email, profile picture, and a random status.
 - **🚀 Deployed Live** – The app is live at [https://adnenre.github.io/messaging-app/](https://adnenre.github.io/messaging-app/)
 
