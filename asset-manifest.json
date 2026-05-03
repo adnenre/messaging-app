@@ -1,13 +1,13 @@
 {
-  "main.css": "/messaging-app/static/css/main.4171a14d.chunk.css",
-  "main.js": "/messaging-app/static/js/main.82e5c9ac.chunk.js",
-  "main.js.map": "/messaging-app/static/js/main.82e5c9ac.chunk.js.map",
-  "static/js/1.40fbf486.chunk.js": "/messaging-app/static/js/1.40fbf486.chunk.js",
-  "static/js/1.40fbf486.chunk.js.map": "/messaging-app/static/js/1.40fbf486.chunk.js.map",
+  "main.css": "/messaging-app/static/css/main.738e9c26.chunk.css",
+  "main.js": "/messaging-app/static/js/main.9c48f018.chunk.js",
+  "main.js.map": "/messaging-app/static/js/main.9c48f018.chunk.js.map",
+  "static/js/1.f6fde221.chunk.js": "/messaging-app/static/js/1.f6fde221.chunk.js",
+  "static/js/1.f6fde221.chunk.js.map": "/messaging-app/static/js/1.f6fde221.chunk.js.map",
   "runtime~main.js": "/messaging-app/static/js/runtime~main.7c1ff60e.js",
   "runtime~main.js.map": "/messaging-app/static/js/runtime~main.7c1ff60e.js.map",
-  "static/css/main.4171a14d.chunk.css.map": "/messaging-app/static/css/main.4171a14d.chunk.css.map",
+  "static/css/main.738e9c26.chunk.css.map": "/messaging-app/static/css/main.738e9c26.chunk.css.map",
   "index.html": "/messaging-app/index.html",
-  "precache-manifest.e8c7f1d9cf1a7181c16a59171d6f3901.js": "/messaging-app/precache-manifest.e8c7f1d9cf1a7181c16a59171d6f3901.js",
+  "precache-manifest.b8955f27217b4a33eeb51b22aed812dc.js": "/messaging-app/precache-manifest.b8955f27217b4a33eeb51b22aed812dc.js",
   "service-worker.js": "/messaging-app/service-worker.js"
 }
