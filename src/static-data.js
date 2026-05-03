@@ -29,9 +29,9 @@ export const state = {
  */
 export function generateUser() {
   return {
-    name: faker.name.findName(),
+    name: faker.name.findName(), // updated from faker.name.findName()
     email: faker.internet.email(),
-    profile_pic: faker.internet.avatar(),
+    profile_pic: faker.image.image(), // updated from faker.internet.avatar()
     status: sentence(),
     user_id: shortid.generate(),
   };
@@ -43,7 +43,7 @@ function generateMsg(number) {
   return {
     number,
     text: sentence(),
-    is_user_msg: faker.random.boolean(),
+    is_user_msg: faker.datatype.boolean(), // updated from faker.random.boolean()
   };
 }
 /**
